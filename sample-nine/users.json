@@ -1,0 +1,20 @@
+{
+   "user1" : {
+      "name" : "Pedro de Lara",
+	  "password" : "123456",
+	  "profession" : "comediante",
+	  "id": 1
+   },
+   "user2" : {
+      "name" : "Sergio Malandro",
+	  "password" : "gluglu",
+	  "profession" : "comediante",
+	  "id": 2
+   },
+   "user3" : {
+      "name" : "Dilma",
+	  "password" : "estocarvento",
+	  "profession" : "comediante",
+	  "id": 3
+   }
+}
