@@ -1,0 +1,26 @@
+{
+   "product1" : {
+      "name" : "meias",
+	  "description" : "meia branca tamanho 20",
+	  "comments" : "produto bom hein o Batista",
+	  "canPurchase" : true,
+	  "image":"images/meia.jpg",
+	  "id": 1
+   },
+   "product2" : {
+      "name" : "camisetas",
+	  "description" : "tamanho 3 azul",
+	  "comments" : "camiseta boa",
+	  "canPurchase" : true,
+	  "image":"images/camiseta.jpg",
+	  "id": 2
+   },
+   "product3" : {
+      "name" : "tenis",
+	  "description" : "kichute preto",
+	  "comments" : "esse é velho",
+	  "canPurchase" : true,
+	  "image":"images/tenis.jpg",
+	  "id": 3
+   }
+}
