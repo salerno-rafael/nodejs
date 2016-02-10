@@ -1,0 +1,101 @@
+<html ng-app="store"> <!-- Chama o modulo quando o documento é carregado-->
+	<head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+		 <link rel="stylesheet" type="text/css" href="css/application.css" />
+	</head>
+
+	<body ng-controller="StoreController as store">
+	
+	<div class="row">
+		<div class="col-md-5 col-md-offset-2">
+		<section ng-controller="PanelController as panel" >
+
+			<div class="list-group-item" ng-repeat="product in store.products">
+
+				<product-header></product-header>
+				<h4 product-header-attribute></h4>
+				<div class="panel" ng-show="panel.isSelected(1)" >
+					<h2 >Descrição</h2>
+					<p>{{product.description}}</p>
+				</div>
+
+				<div class="panel" ng-show="panel.isSelected(2)" >
+					<h2>Detalhes</h2>
+					<h2>{{product.price | currency}}</h2>
+					<img ng-src="{{product.image}}">
+				</div>
+
+				<div class="panel" ng-show="panel.isSelected(3)" >
+
+					 <form name="commentForm" 
+					 ng-controller="CommentController as commentCtrl"
+					 ng-submit="commentForm.$valid && commentCtrl.addComment(product)"  novalidate>
+
+		            <ul>
+		              <h4>Comentários </h4>
+		              <li ng-repeat="comment in product.comments">
+		                <blockquote>
+		                  <strong>{{comment.stars}} Stars</strong>
+		                  {{comment.body}}
+		                  <cite class="clearfix">-{{comment.author}}</cite>
+		                </blockquote>
+		              </li>
+		            </ul>
+
+		              <blockquote>
+		                <strong> Stars</strong>
+		                
+		                <cite class="clearfix">-</cite>
+		              </blockquote>
+
+		              <h4>Submeter um Comentário </h4>
+		              <fieldset class="form-group">
+		                <select ng-model="commentCtrl.comment.stars" class="form-control" title="Stars">
+		                  <option value="">Avaliação do Produto</option>
+		                  <option value="1">1</option>
+		                  <option value="2">2</option>
+		                  <option value="3">3</option>
+		                  <option value="4">4</option>
+		                  <option value="5">5</option>
+		                </select>
+		              </fieldset>
+		              <fieldset class="form-group">
+
+		                <textarea ng-model="commentCtrl.comment.body" class="form-control ng-dirty ng-valid" placeholder="comentários sobre o produto" title="Review"  required ></textarea>
+		              </fieldset>
+
+		              <fieldset class="form-group">
+		                <input ng-model="commentCtrl.comment.author" type="email" class="form-control ng-dirty ng-invalid" placeholder="nome@example.org" title="Email"  required/>
+		              </fieldset>
+
+		              <fieldset class="form-group">
+		                <input type="submit" class="btn btn-primary pull-right" value="Submit" />
+		              </fieldset>
+		            </form>
+
+				</div>
+
+			</div>
+		
+			<ul class="nav nav-pills">
+				<li ng-class="{ active: panel.isSelected(1) }">
+					<a href ng-click="panel.selectTab(1)">Descrição</a>
+				</li>
+				<li   ng-class=" { active: panel.isSelected(2) }"> 
+					<a href ng-click="panel.selectTab(2)" >Detalhes</a>
+				</li>
+				<li ng-class="{ active: panel.isSelected(3) }">
+					<a href ng-click="panel.selectTab(3)" >Comentários</a>
+				</li>
+			</ul>
+
+		</section>
+	
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.2/angular.min.js" />
+		</script>
+		<script type="text/javascript" src="js/app.js"></script>
+		</div>
+		</div>
+	</body>
+</html>
