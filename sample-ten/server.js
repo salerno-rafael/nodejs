@@ -19,17 +19,6 @@ app.get('/list_products', function (req, res) {
    });
 })
 
-app.get('/process_get', function (req, res) {
-
-   // builda o output em formato JSON 
-   response = {
-       first_name:req.query.first_name,
-       last_name:req.query.last_name
-   };
-   console.log(response);
-   res.end(JSON.stringify(response));
-})
-
 var server = app.listen(8081, function () {
 
   var host = server.address().address
