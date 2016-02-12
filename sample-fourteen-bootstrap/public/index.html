@@ -7,23 +7,33 @@
 
 	<body ng-controller="StoreController as store">
 	
+	
+<div class="panel panel-primary ">
+ 
+  <div class="panel-heading">Mega Store</div>
+  <div class="panel-body">
+
 	<div class="row">
 		<div class="col-md-5 col-md-offset-2">
+
 		<section ng-controller="PanelController as panel" >
 
-			<div class="list-group-item" ng-repeat="product in store.products">
+			<div class="list-group" ng-repeat="product in store.products">
+			  <a href="#" class="list-group-item">
 
 				<product-header></product-header>
 				<h4 product-header-attribute></h4>
-				<div class="panel" ng-show="panel.isSelected(1)" >
-					<h2 >Descrição</h2>
-					<p>{{product.description}}</p>
+
+				<div class="panel list-group-item " ng-show="panel.isSelected(1)" >
+					<h2 class="list-group-item-heading">Descrição</h2>
+					<p class="list-group-item-text" >{{product.description}}</p>
 				</div>
 
-				<div class="panel" ng-show="panel.isSelected(2)" >
-					<h2>Detalhes</h2>
+				<div class="panel thumbnail" ng-show="panel.isSelected(2)" >
+					<h2 class="list-group-item-heading" >Detalhes</h2>
 					<h2>{{product.price | currency}}</h2>
 					<img ng-src="{{product.image}}"  class = "img-thumbnail">
+					<button ng-show="product.canPurchase" class = "btn btn-success"> Buy Product</button>
 				</div>
 
 				<div class="panel" ng-show="panel.isSelected(3)" >
@@ -33,20 +43,23 @@
 					 ng-submit="commentForm.$valid && commentCtrl.addComment(product)"  novalidate>
 
 		            <ul>
-		              <h4>Comentários </h4>
+		              <h4 class="glyphicon glyphicon-list-alt"> Comentários </h4>
 		              <li ng-repeat="comment in product.comments">
 		                <blockquote>
-		                  <strong>{{comment.stars}} Stars</strong>
-		                  {{comment.body}}
-		                  <cite class="clearfix">-{{comment.author}}</cite>
+		                  <strong class="glyphicon glyphicon-star"> {{comment.stars}} </strong>
+		                   - {{comment.body}}
+		                   
+			                  <cite class="clearfix"> 
+			                	 <p class="glyphicon glyphicon-envelope"> {{comment.author}}</p>
+			                  </cite>
 		                </blockquote>
 		              </li>
 		            </ul>
 
 		              <blockquote>
-		                <strong> Stars</strong>
+		                <strong class="glyphicon glyphicon-star"> Stars</strong>
 		                
-		                <cite class="clearfix">-</cite>
+		               
 		              </blockquote>
 
 		              <h4>Submeter um Comentário </h4>
@@ -62,11 +75,11 @@
 		              </fieldset>
 		              <fieldset class="form-group">
 
-		                <textarea ng-model="commentCtrl.comment.body" class="form-control ng-dirty ng-valid" placeholder="comentários sobre o produto" title="Review"  required ></textarea>
+		                <textarea ng-model="commentCtrl.comment.body" class="form-control ng-dirty ng-valid" placeholder="comentários sobre o produto" title="Review" required ></textarea>
 		              </fieldset>
 
 		              <fieldset class="form-group">
-		                <input ng-model="commentCtrl.comment.author" type="email" class="form-control ng-dirty ng-invalid" placeholder="nome@example.org" title="Email"  required/>
+		                <input ng-model="commentCtrl.comment.author" type="email" class="form-control ng-dirty ng-invalid" placeholder="nome@example.org" title="Email" required/>
 		              </fieldset>
 
 		              <fieldset class="form-group">  
@@ -78,21 +91,23 @@
 		            </form>
 
 				</div>
-
+			 </a>	
 			</div>
 		
+	
+	
 			<ul class="nav nav-pills">
-				<li ng-class="{ active: panel.isSelected(1) }">
+				<li ng-class="{active: panel.isSelected(1) }">
 					<a href ng-click="panel.selectTab(1)">Descrição</a>
 				</li>
-				<li   ng-class=" { active: panel.isSelected(2) }"> 
+				<li   ng-class=" {active: panel.isSelected(2) }"> 
 					<a href ng-click="panel.selectTab(2)" >Detalhes</a>
 				</li>
-				<li ng-class="{ active: panel.isSelected(3) }">
+				<li ng-class="{active: panel.isSelected(3) }">
 					<a href ng-click="panel.selectTab(3)" >Comentários</a>
 				</li>
 			</ul>
-
+			
 		</section>
 	
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.2/angular.min.js" />
@@ -100,5 +115,11 @@
 		<script type="text/javascript" src="js/app.js"></script>
 		</div>
 		</div>
+		</div>
+
+	</div>
+	 <div class="panel-footer">Boostrap 2016</div>
+    </div>
+  
 	</body>
 </html>

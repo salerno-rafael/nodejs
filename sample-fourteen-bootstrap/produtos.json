@@ -3,7 +3,9 @@
       "name" : "meias",
 	  "description" : "meia branca tamanho 20",
 	  "canPurchase" : true,
+	  "imagegif":"images/meia-gif.jpg",
 	  "image":"images/meia.jpg",
+	  "price":10.99,
 	  "id": 1,
 	  "comments":[
 			{
@@ -22,7 +24,9 @@
       "name" : "camisetas",
 	  "description" : "tamanho 3 azul",
 	  "canPurchase" : true,
+	  "imagegif":"images/camiseta-gif.jpg",
 	  "image":"images/camiseta.jpg",
+	   "price":25.99,
 	  "id": 2,
 	   "comments":[
 			{
@@ -36,7 +40,9 @@
       "name" : "tenis",
 	  "description" : "kichute preto",
 	  "canPurchase" : true,
+	  "imagegif":"images/tenis-gif.jpg",
 	  "image":"images/tenis.jpg",
+	  "price":99.99,
 	  "id": 3,
 	   "comments":[
 			{
