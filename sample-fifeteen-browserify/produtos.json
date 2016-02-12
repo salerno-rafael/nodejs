@@ -1,0 +1,55 @@
+{
+   "product1" : {
+      "name" : "meias",
+	  "description" : "meia branca tamanho 20",
+	  "canPurchase" : true,
+	  "imagegif":"images/meia-gif.jpg",
+	  "image":"images/meia.jpg",
+	  "price":10.99,
+	  "id": 1,
+	  "comments":[
+			{
+				"stars":5,
+				"body":"produto bom hein o Batista",
+				"author":"salerno.rafael@gmail.com"
+			},
+			{
+				"stars":2,
+				"body":"produto bem meia boca",
+				"author":"salerno.rafael@gmail.com"
+			}
+		]
+   },
+   "product2" : {
+      "name" : "camisetas",
+	  "description" : "tamanho 3 azul",
+	  "canPurchase" : true,
+	  "imagegif":"images/camiseta-gif.jpg",
+	  "image":"images/camiseta.jpg",
+	   "price":25.99,
+	  "id": 2,
+	   "comments":[
+			{
+				"stars":5,
+				"body":"muito bom",
+				"author":"salerno.rafael@gmail.com"
+			}
+		]
+   },
+   "product3" : {
+      "name" : "tenis",
+	  "description" : "kichute preto",
+	  "canPurchase" : true,
+	  "imagegif":"images/tenis-gif.jpg",
+	  "image":"images/tenis.jpg",
+	  "price":99.99,
+	  "id": 3,
+	   "comments":[
+			{
+				"stars":1,
+				"body":"produto muito velho",
+				"author":"salerno.rafael@gmail.com"
+			}
+		]
+   }
+}
