@@ -1,14 +1,19 @@
 (function(){
-	var app = angular.module('store',[]);
+	var app = angular.module('store', ['angularUtils.directives.dirPagination']);
 
-	app.controller('StoreController',['$http', function($http){
+ app.controller('StoreController', function($scope,$http) {
+
+  		$scope.currentPage = 1;
+		  $scope.pageSize = 2;
+		  $scope.products = [];
+
 		var store =this;
 
 		$http.get('http://localhost:8081/list_products').success(function(data){
-			
+			$scope.products = data;
 			store.products = data;
 		});
-	}]);
+	});
 
 	app.directive('productHeader',function(){
 		return{
@@ -26,7 +31,7 @@
 
 	app.controller('CommentController', function(){
 		this.comment ={};
-		
+
 		this.addComment = function(product){
 			product.comments.push(this.comment);
 			this.comment ={};

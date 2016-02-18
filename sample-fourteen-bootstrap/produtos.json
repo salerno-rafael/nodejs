@@ -51,5 +51,37 @@
 				"author":"salerno.rafael@gmail.com"
 			}
 		]
+   },
+   "product4" : {
+      "name" : "tenis outro",
+	  "description" : "kichute preto",
+	  "canPurchase" : true,
+	  "imagegif":"images/tenis-gif.jpg",
+	  "image":"images/tenis.jpg",
+	  "price":99.99,
+	  "id": 3,
+	   "comments":[
+			{
+				"stars":1,
+				"body":"produto muito velho",
+				"author":"salerno.rafael@gmail.com"
+			}
+		]
+   },
+   "product5" : {
+      "name" : "mais um tenis",
+	  "description" : "kichute preto",
+	  "canPurchase" : true,
+	  "imagegif":"images/tenis-gif.jpg",
+	  "image":"images/tenis.jpg",
+	  "price":99.99,
+	  "id": 3,
+	   "comments":[
+			{
+				"stars":1,
+				"body":"produto muito velho",
+				"author":"salerno.rafael@gmail.com"
+			}
+		]
    }
 }

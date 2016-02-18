@@ -1,24 +1,25 @@
 <html ng-app="store"> <!-- Chama o modulo quando o documento é carregado-->
 	<head>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
+		<meta charset="UTF-8">
 		 <link rel="stylesheet" type="text/css" href="css/application.css" />
 	</head>
 
+
 	<body ng-controller="StoreController as store">
-	
-	
+
 <div class="panel panel-primary ">
- 
+
   <div class="panel-heading">Mega Store</div>
   <div class="panel-body">
 
 	<div class="row">
-		<div class="col-md-5 col-md-offset-2">
+		<div class="col-xs-6 col-xs-offset-2">
 
 		<section ng-controller="PanelController as panel" >
 
-			<div class="list-group" ng-repeat="product in store.products">
+			<div class="list-group"
+			dir-paginate="product in store.products| itemsPerPage: pageSize" current-page="currentPage">
 			  <a href="#" class="list-group-item">
 
 				<product-header></product-header>
@@ -38,7 +39,7 @@
 
 				<div class="panel" ng-show="panel.isSelected(3)" >
 
-					 <form name="commentForm" 
+					 <form name="commentForm"
 					 ng-controller="CommentController as commentCtrl"
 					 ng-submit="commentForm.$valid && commentCtrl.addComment(product)"  novalidate>
 
@@ -48,8 +49,8 @@
 		                <blockquote>
 		                  <strong class="glyphicon glyphicon-star"> {{comment.stars}} </strong>
 		                   - {{comment.body}}
-		                   
-			                  <cite class="clearfix"> 
+
+			                  <cite class="clearfix">
 			                	 <p class="glyphicon glyphicon-envelope"> {{comment.author}}</p>
 			                  </cite>
 		                </blockquote>
@@ -58,8 +59,6 @@
 
 		              <blockquote>
 		                <strong class="glyphicon glyphicon-star"> Stars</strong>
-		                
-		               
 		              </blockquote>
 
 		              <h4>Submeter um Comentário </h4>
@@ -82,37 +81,45 @@
 		                <input ng-model="commentCtrl.comment.author" type="email" class="form-control ng-dirty ng-invalid" placeholder="nome@example.org" title="Email" required/>
 		              </fieldset>
 
-		              <fieldset class="form-group">  
+		              <fieldset class="form-group">
 		                <button type ="button" class = "btn btn-warning pull-right">
-   							<span class = "glyphicon glyphicon-pushpin"></span> 
+   							<span class = "glyphicon glyphicon-pushpin"></span>
 							   Submit
 							</button>
 		              </fieldset>
 		            </form>
 
 				</div>
-			 </a>	
+			 </a>
+
 			</div>
-		
-	
-	
+
+			<div class="text-center">
+					 <dir-pagination-controls boundary-links="true"
+						on-page-change="pageChangeHandler(newPageNumber)"
+						 template-url="angular-utils-pagination/dirPagination.tpl.html"></dir-pagination-controls>
+			 </div>
+
+
 			<ul class="nav nav-pills">
 				<li ng-class="{active: panel.isSelected(1) }">
 					<a href ng-click="panel.selectTab(1)">Descrição</a>
 				</li>
-				<li   ng-class=" {active: panel.isSelected(2) }"> 
+				<li   ng-class=" {active: panel.isSelected(2) }">
 					<a href ng-click="panel.selectTab(2)" >Detalhes</a>
 				</li>
 				<li ng-class="{active: panel.isSelected(3) }">
 					<a href ng-click="panel.selectTab(3)" >Comentários</a>
 				</li>
 			</ul>
-			
+
 		</section>
-	
-		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.2/angular.min.js" />
+
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js" />
 		</script>
 		<script type="text/javascript" src="js/app.js"></script>
+		<script type="text/javascript" src="angular-utils-pagination/dirPagination.js"></script>
+
 		</div>
 		</div>
 		</div>
@@ -120,6 +127,6 @@
 	</div>
 	 <div class="panel-footer">Boostrap 2016</div>
     </div>
-  
+
 	</body>
 </html>
